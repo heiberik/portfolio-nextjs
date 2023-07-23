@@ -1,4 +1,4 @@
-import { getPages } from '@/services/sanityService'
+import { getPages } from '@/lib/sanityService'
 import { getServerSideSitemapIndex } from 'next-sitemap'
 
 const getStaticUrls = async () => {
