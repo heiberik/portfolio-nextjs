@@ -1,8 +1,9 @@
 import { visionTool } from '@sanity/vision'
 import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
-import { apiVersion, dataset, projectId } from './sanity/env'
-import { schema } from './sanity/schema'
+import { apiVersion, dataset, projectId } from './env'
+import { schema } from './schema'
+import { customDesk } from './deskStructure'
 
 export default defineConfig({
     basePath: '/admin',
@@ -10,7 +11,7 @@ export default defineConfig({
     dataset,
     schema,
     plugins: [
-        deskTool(),
+        deskTool({structure: customDesk}),
         visionTool({ defaultApiVersion: apiVersion }),
     ],
 })
