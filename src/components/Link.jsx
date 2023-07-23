@@ -1,11 +1,16 @@
 import NextLink from "next/link"
+import { Button } from "./ui/button"
 
 const Link = ({ sanityData }) => {
 
     const important = !!sanityData.important
 
     return (
-        <NextLink href={sanityData.url} className={`w-fit whitespace-nowrap hover:bg-opacity-80 ${important ? "bg-action-important-color text-action-important-color" : "bg-action-color text-action-color"} text-center p-4 px-6 2xl:p-5 2xl:px-8 text-lg mt-4`}> {sanityData.text} </NextLink>
+        <NextLink href={sanityData.url}>
+            <Button variant={important ? "" : "outline"}>
+                {sanityData.text}
+            </Button>
+        </NextLink>
     )
 }
 

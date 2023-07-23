@@ -1,13 +1,18 @@
-import { getRoutes, getSettings } from '@/lib/sanityService'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { getRoutes, getSettings } from '@/lib/sanityService'
+import { Roboto } from 'next/font/google'
 import Header from '@/components/Header'
 import Link from 'next/link'
 import ThemeProvider from "@/components/themeProvider"
 import { Analytics } from '@vercel/analytics/react';
 
 
-const inter = Inter({ subsets: ['latin'] })
+const roboto = Roboto({
+    weight: ["100", "300", "400", "500", "700", "900"],
+    style: ['normal', 'italic'],
+    subsets: ['latin']
+})
+
 const settings = await getSettings()
 const routes = await getRoutes()
 
@@ -19,7 +24,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="no">
-            <body className={`${inter.className} min-h-screen relative  flex flex-col`}>
+            <body className={`${roboto.className} min-h-screen relative  flex flex-col`}>
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                     <Header>
                         {routes.map((route) => {
