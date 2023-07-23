@@ -3,7 +3,6 @@ import { getFrontPage } from "@/lib/sanityService"
 
 const frontPage = await getFrontPage()
 
-
 const Home = () => {
     return (
         <main className="h-screen w-screen">
