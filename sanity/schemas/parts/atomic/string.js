@@ -1,4 +1,4 @@
-export const email = ({ name = "email", validation = null, title = "Mailadresse"}) => {
+export const string = ({name = "title", validation = null, title = "Tittel"}) => {
     return {
         type: 'string',
         name,

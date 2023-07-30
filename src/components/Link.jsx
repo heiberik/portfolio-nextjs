@@ -1,16 +1,17 @@
 import NextLink from "next/link"
 import { Button } from "./ui/button"
 
-const Link = ({ sanityData }) => {
+const Link = ({ sanityData, size }) => {
 
     const important = !!sanityData.important
 
     return (
-        <NextLink href={sanityData.url}>
-            <Button variant={important ? "" : "outline"}>
+        <Button asChild variant={important ? "" : "secondary"} size={size}>
+            <NextLink href={sanityData.url}>
                 {sanityData.text}
-            </Button>
-        </NextLink>
+            </NextLink>
+        </Button>
+
     )
 }
 

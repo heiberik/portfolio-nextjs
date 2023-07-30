@@ -1,64 +1,44 @@
+import { image } from "../parts/image"
 import { slug } from "../parts/atomic/slug"
+import { string } from "../parts/atomic/string"
+import { text } from "../parts/atomic/text"
+import { reference } from "../parts/atomic/reference"
+import { array } from "../parts/atomic/array"
+import { dateTime } from "../parts/atomic/dateTime"
+import { richText } from "../parts/richTextObject"
 
 export const post = {
+    type: 'document',
     name: 'post',
     title: 'Innlegg',
-    type: 'document',
     fields: [
-        {
+        string({
             name: 'title',
-            title: 'Title',
-            type: 'string',
-        },
-        slug("blogg"),
-        {
+            title: 'Title'
+        }),
+        text({
+            name: 'intro',
+            title: 'Introduksjon'
+        }),
+        slug({ prefix: "blog" }),
+        reference({
             name: 'author',
             title: 'Author',
-            type: 'reference',
-            to: { type: 'author' },
-        },
-        {
-            name: 'mainImage',
-            title: 'Main image',
-            type: 'image',
-            options: {
-                hotspot: true,
-            },
-            fields: [
-                {
-                    name: 'alt',
-                    type: 'string',
-                    title: 'Alternative Text',
-                }
-            ]
-        },
-        {
+            referenceToType: 'author'
+        }),
+        image({title: "Hovedbilde"}),
+        array({
             name: 'categories',
             title: 'Categories',
-            type: 'array',
-            of: [{ type: 'reference', to: { type: 'category' } }],
-        },
-        {
-            name: 'publishedAt',
-            title: 'Published at',
-            type: 'datetime',
-        },
-        {
+            arrayContains: { 
+                type: 'reference', 
+                to: { type: 'category' } 
+            }
+        }),
+        dateTime({}),
+        richText({
             name: 'body',
-            title: 'Body',
-            type: 'blockContent',
-        },
-    ],
-
-    preview: {
-        select: {
-            title: 'title',
-            author: 'author.name',
-            media: 'mainImage',
-        },
-        prepare(selection) {
-            const { author } = selection
-            return { ...selection, subtitle: author && `by ${author}` }
-        },
-    },
+            title: 'Body'
+        })
+    ]
 }

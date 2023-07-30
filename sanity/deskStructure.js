@@ -19,6 +19,9 @@ export const customDesk = (S) =>
             S.documentTypeListItem("page").title("Sider"),
             S.divider(),
             S.documentTypeListItem("post").title("Blogginnlegg"),
-            S.documentTypeListItem("author").title("Forfattere"),
+            S.documentTypeListItem("project").title("Prosjekter"),
+            S.divider(),
+            S.documentTypeListItem("technology").title("Teknologier"),
             S.documentTypeListItem("category").title("Kategorier"),
+            S.documentTypeListItem("author").title("Forfattere")
         ])

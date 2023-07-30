@@ -1,10 +1,12 @@
 import './globals.css'
+import "animate.css/animate.min.css"
 import { getRoutes, getSettings } from '@/lib/sanityService'
 import { Roboto } from 'next/font/google'
 import Header from '@/components/Header'
 import Link from 'next/link'
 import ThemeProvider from "@/components/themeProvider"
 import { Analytics } from '@vercel/analytics/react';
+import { Button } from '@/components/ui/button'
 
 
 const roboto = Roboto({
@@ -28,7 +30,13 @@ export default function RootLayout({ children }) {
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                     <Header>
                         {routes.map((route) => {
-                            return <Link key={route.url} href={route.url} className={`hover:opacity-80 p-3 text-center whitespace-nowrap ${route.colorLink ? "bg-main-color text-main-color rounded md:ml-3 hover:opacity-80 2xl:px-6" : "2xl:px-4"}`}>{route.title}</Link>
+                            return (
+                                <Button asChild variant="link" key={route.url} className="font-bold">
+                                    <Link href={route.url} className={`hover:opacity-80 p-3 text-center whitespace-nowrap ${route.colorLink ? "bg-main-color text-main-color rounded md:ml-3 hover:opacity-80 2xl:px-6" : "2xl:px-4"}`}>
+                                        <p className='font-bold'> {route.title} </p>
+                                    </Link>
+                                </Button>
+                            )
                         })}
                     </Header>
                     {children}

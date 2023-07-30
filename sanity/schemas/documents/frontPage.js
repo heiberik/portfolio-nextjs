@@ -1,3 +1,4 @@
+import { array } from "../parts/atomic/array";
 import { banner } from "../parts/banner";
 
 export const frontPage = {
@@ -5,23 +6,34 @@ export const frontPage = {
     title: "Forside",
     type: "document",
     fields: [
-        banner,
-        {
+        banner({}),
+        array({
             title: "Fremhevede innlegg",
             name: "promotedPosts",
-            type: "array",
             validation: (Rule) => [Rule.required(), Rule.length(4)],
             description: "Velg fire fremhevede blogginnlegg.",
-            of: [
-              {
+            arrayContains: {
                 type: "reference",
+                name: "reference",
                 to: [{ type: "post" }],
                 options: {
-                  disableNew: true
+                    disableNew: true
                 }
-              }
-            ]
-          }
+            }
+        }),
+        array({
+            title: "Fremhevede prosjekter",
+            name: "promotedProjects",
+            description: "Velg fremhevede prosjekter.",
+            arrayContains: {
+                type: "reference",
+                name: "reference",
+                to: [{ type: "project" }],
+                options: {
+                    disableNew: true
+                }
+            }
+        })
     ],
     preview: {
         select: {

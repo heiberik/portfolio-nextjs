@@ -1,15 +1,16 @@
-export const image = (title = "Bilde") => {
+import { string } from "./atomic/string"
+
+export const image = ({title = "Bilde"}) => {
     return {
         name: 'image',
         type: 'image',
         title: title,
         fields: [
-            {
+            string({
                 name: 'alt',
-                type: 'string',
                 validation: (Rule) => Rule.required(),
                 title: 'alternativ tekst',
-            }
+            })
         ]
     }
 }

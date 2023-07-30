@@ -1,17 +1,18 @@
+import { string } from "../parts/atomic/string";
+import { text } from "../parts/atomic/text";
+
 export const category = {
+    type: 'document',
     name: 'category',
     title: 'Kategori',
-    type: 'document',
     fields: [
-        {
+        string({
             name: 'title',
-            title: 'Tittel',
-            type: 'string',
-        },
-        {
+            title: 'Tittel'
+        }),
+        text({
             name: 'description',
-            title: 'Beskrivelse',
-            type: 'text',
-        },
-    ],
+            title: 'Beskrivelse'
+        })
+    ]
 }
