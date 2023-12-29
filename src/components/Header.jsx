@@ -34,13 +34,14 @@ const toggleHeaderChange = (setNavColor, setNavSize) => {
 
 
 const Header = ({ children }) => {
-    
+
     const pathname = usePathname();
     const pathRoot = pathname === "/" || "/?";
 
     const [navSize, setNavSize] = useState(pathRoot ? HEADER_HEIGHT_ROOT : HEADER_HEIGHT_NORMAL);
     const [navColor, setNavColor] = useState(pathRoot ? HEADER_BACKGROUND_TRANSPARENT : HEADER_BACKGROUND_NORMAL);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
 
     const handleMenuClick = () => {
         setIsDropdownOpen((prevState) => !prevState);
@@ -51,7 +52,7 @@ const Header = ({ children }) => {
         toggleHeaderChange(setNavColor, setNavSize);
     }, [pathname]);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         const listenScrollEvent = () => {
             toggleHeaderChange(setNavColor, setNavSize);
         };
@@ -63,7 +64,7 @@ const Header = ({ children }) => {
 
     const headerStyle = {
         height: navSize,
-        transition: "all 0.8s",
+        transition: "height 0.8s, background-color 0.8s",
     };
 
     const opacity = isDropdownOpen ? OPACITY_100 : OPACITY_95;
@@ -71,10 +72,10 @@ const Header = ({ children }) => {
 
     if (pathname.includes("/admin")) return null;
     return (
-        <header style={headerStyle} className={`flex flex-wrap justify-between ${background} place-items-center fixed top-0 right-0 left-0 z-20`}>
+        <header style={headerStyle} className={`flex flex-wrap justify-between ${background} place-items-center fixed top-0 right-0 left-0 z-50`}>
             <Button asChild variant="link" className="flex-1 flex justify-start">
                 <Link href="/" onClick={() => setShowDropdown(false)} className="h-fit p-3 flex items-center ml-1 md:ml-5 hover:opacity-80">
-                    <p className='h-fit text-stroke text-xl font-extrabold'> Heiberik </p>
+                    <p className='h-fit text-stroke text-xl'> Heiberik </p>
                 </Link>
             </Button>
             <nav className='flex gap-2 items-center mr-4 '>
@@ -86,11 +87,11 @@ const Header = ({ children }) => {
                 <ThemeToggler />
             </div>
             <div className='flex-1 justify-end flex md:hidden mr-4 md:mr-8 h-[inherit]'>
-                <button className='flex justify-center items-center text-muted-foreground' aria-label={showDropdown ? "Lukk meny" : "Vis meny"} onClick={handleMenuClick}>
-                    {showDropdown ? <HiXMark size={40} /> : <HiBars3 size={40} />}
+                <button className='flex justify-center items-center text-muted-foreground' aria-label={isDropdownOpen ? "Lukk meny" : "Vis meny"} onClick={handleMenuClick}>
+                    {isDropdownOpen ? <HiXMark size={40} /> : <HiBars3 size={40} />}
                 </button>
             </div>
-            {showDropdown && <div className={`w-screen h-screen ${background} justify-start flex flex-col gap-4 px-4`} id='hamburger-menu'>
+            {isDropdownOpen && <div className={`w-screen h-screen bg-muted justify-start flex flex-col gap-4 px-4`} id='hamburger-menu'>
                 {children}
                 <div className='w-full flex justify-center'>
                     <ThemeToggler />

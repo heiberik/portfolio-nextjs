@@ -45,7 +45,7 @@
         --background: 220 35% 12%;
         --foreground: 222 20% 95%;
 
-        --muted: 220 35% 10%;
+        --muted: 220 35% 15%;
         --muted-foreground: 222 20% 80%;
 
         --popover: 220 16% 16%;
@@ -54,7 +54,7 @@
         --border: 222 20% 40%;
         --input: 222 20% 40%;
 
-        --card: 220 16% 16%;
+        --card: 220 16% 56%;
         --card-foreground: 222 20% 96%;
 
         --primary: 280 100% 60%;

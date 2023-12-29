@@ -52,6 +52,7 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      scale: ['group-hover'],
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

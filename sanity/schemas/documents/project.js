@@ -1,5 +1,6 @@
 import { array } from "../parts/atomic/array";
 import { string } from "../parts/atomic/string";
+import { text } from "../parts/atomic/text";
 import { image } from "../parts/image";
 import { richText } from "../parts/richTextObject";
 
@@ -12,6 +13,10 @@ export const project = {
         string({ title: "Kodebase (Github)", name: "github" }),
         string({ title: "Deploy (nettside)", name: "url" }),
         image({ title: "Prosjektbilde" }),
+        text({
+            name: 'intro',
+            title: 'Introduksjon'
+        }),
         richText({ name: "description", title: "Beskrivelse av prosjekt" }),
         array({
             title: "Teknologier",

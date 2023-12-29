@@ -10,7 +10,7 @@ export const frontPage = {
         array({
             title: "Fremhevede innlegg",
             name: "promotedPosts",
-            validation: (Rule) => [Rule.required(), Rule.length(4)],
+            validation: (Rule) => [Rule.required(), Rule.length(3)],
             description: "Velg fire fremhevede blogginnlegg.",
             arrayContains: {
                 type: "reference",
