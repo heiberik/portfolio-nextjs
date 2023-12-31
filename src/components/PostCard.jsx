@@ -10,7 +10,7 @@ const PostCard = async ({ sanityData }) => {
     return (
         <Button asChild variant="link" size="fit">
             <Link href={post.slug.current}>
-                <div className="group bg-muted rounded-lg text-secondary-foreground transform transition duration-300 ease-out overflow-hidden shadow-md hover:shadow-lg border border-muted hover:border-foreground/10">
+            <div className="w-full group bg-card rounded-lg text-secondary-foreground transform transition duration-300 ease-out overflow-hidden shadow-md border border-transparent hover:border-foreground/10">
                     <div className="relative w-full h-48 overflow-hidden">
                         <Image
                             objectFit="cover"       
@@ -18,10 +18,10 @@ const PostCard = async ({ sanityData }) => {
                             className="transform group-hover:scale-110 transition-transform duration-500 ease-out" />
                     </div>
                     <div className="p-4">
-                        <h3 className="font-semibold text-xl mb-1">
+                        <h3 className="font-semibold text-xl mb-1 text-card-foreground">
                             {post.title}
                         </h3>
-                        <p className="text-sm line-clamp-4 text-secondary-foreground/60">
+                        <p className="text-sm line-clamp-4 text-card-foreground/60">
                             {post.intro}
                         </p>
                     </div>
