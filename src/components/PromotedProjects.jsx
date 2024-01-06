@@ -1,13 +1,27 @@
-import ProjectCard from "./ProjectCard"
-import Container from "./ui/Container"
+import Link from 'next/link'
+import ProjectCard from './ProjectCard'
+import Container from './ui/Container'
+import { Button } from './ui/button'
 
 const PromotedProjects = ({ sanityData }) => {
-
     return (
         <Container>
-            <div className="gap-4 xl:gap-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-[1280px]">
-                <h2 className="text-3xl justify-center flex items-center p-4 md:p-8 max-w-[1280px] bg-secondary rounded-lg text-secondary-foreground"> Prosjekter </h2>
-                {sanityData?.map(project => <ProjectCard sanityData={project} key={project._ref} />)}
+            <div className='grid max-w-[1280px] grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-6'>
+                <div className='flex flex-col gap-4'>
+                    <div className='flex-grow bg-gradient-to-br from-primary/10 via-primary/80 to-primary/10 p-[2px] text-3xl font-medium text-foreground '>
+                        <h2 className='bg-card p-4 h-full w-full flex items-center justify-center'>
+                            Prosjekter
+                        </h2>
+                    </div>
+                    <Button asChild className='font-bold' variant='default'>
+                        <Link href={'/blogg'}>
+                            <p className='font-medium'>Alle mine prosjekter</p>
+                        </Link>
+                    </Button>
+                </div>{' '}
+                {sanityData?.map((project) => (
+                    <ProjectCard sanityData={project} key={project._ref} />
+                ))}
             </div>
         </Container>
     )
