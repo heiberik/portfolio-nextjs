@@ -6,73 +6,21 @@
     scroll-behavior: smooth;
 }
 
-
 @layer base {
     :root {
-        --background: 220 26% 98%;
-        --foreground: 222 20% 16%;
-
-        --muted: 220 10% 96%;
-        --muted-foreground: 222 20% 16%;
-
-        --popover: 220 16% 96%;
-        --popover-foreground: 222 20% 16%;
-
-        --border: 222 20% 70%;
-        --input: 222 20% 70%;
-
-        --card: 220 35% 15%;
-        --card-foreground: 222 20% 100%;
-
-        --primary: 280 100% 40%;
-        --primary-foreground: 220 26% 0%;
-
-        --secondary: 225 14% 20%;
-        --secondary-foreground: 222 10% 96%;
-
-        --accent: 215 14% 80%;
-        --accent-foreground: 222 20% 16%;
-
-        --destructive: 0 80% 50%;
-        --destructive-foreground: 222 20% 16%;
-
-        --radius: 0.5rem;
-
-        --ring: 222 20% 20%;
+        --foreground: 207 61% 10%;
+        --background: 197 64% 98%;
+        --primary: 204 59% 26%;
+        --secondary: 248 59% 69%;
+        --accent: 258 59% 49%;
     }
 
     .dark {
-        --background: 220 35% 12%;
-        --foreground: 222 20% 95%;
-
-        --muted: 220 35% 15%;
-        --muted-foreground: 222 20% 80%;
-
-        --popover: 220 16% 16%;
-        --popover-foreground: 222 20% 96%;
-
-        --border: 222 20% 40%;
-        --input: 222 20% 40%;
-
-        --card: 220 35% 15%;
-        --card-foreground: 222 20% 100%;
-
-        --primary: 280 100% 60%;
-        --primary-muted: 180 100% 15%;
-        --primary-foreground: 220 26% 0%;
-
-        --secondary: 215 14% 25%;
-        --secondary-foreground: 222 20% 96%;
-
-        --accent: 215 14% 25%;
-        --accent-foreground: 222 20% 96%;
-
-        --destructive: 0 80% 50%;
-        --destructive-foreground: 222 20% 96%;
-
-        --radius: 0.5rem;
-
-        --ring: 222 20% 40%;
+        --foreground: 208 60% 90%;
+        --background: 203 67% 2%;
+        --primary: 204 59% 74%;
+        --secondary: 248 59% 31%;
+        --accent: 258 59% 51%;
     }
 }
 
@@ -83,5 +31,9 @@
 
     body {
         @apply bg-background text-foreground;
+    }
+
+    p {
+        @apply text-base;
     }
 }

@@ -2,14 +2,13 @@ import Container from './ui/Container'
 import { Button } from './ui/button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import SpecialHeader from './ui/SpecialHeader'
 
 const ContactMe = () => {
     return (
         <Container id='kontakt'>
-            <div className='z-10 flex flex-col text-card-foreground'>
-                <div className='bg-gradient-to-r from-primary/5 via-primary/70 to-primary/5 mb-8 md:mb-16 pb-[2px] text-center text-3xl font-medium text-foreground'>
-                    <h2 className='bg-background pb-4'> Kontakt meg </h2>
-                </div>
+            <div className='z-10 flex flex-col text-foreground'>
+                <SpecialHeader> Kontakt meg </SpecialHeader>
                 <div className='flex flex-col gap-8 justify-center items-center'>
                     <ContactMedias />
                     <p className='text-xl'>Eller</p>
@@ -47,7 +46,7 @@ const ContactMedias = () => {
 
 const ContactForm = () => {
     return (
-        <div className='col-span-2 flex w-full md:max-w-2xl flex-grow justify-center rounded-xl bg-card p-8'>
+        <div className='z-20 col-span-2 flex w-full md:max-w-2xl flex-grow justify-center rounded-xl bg-primary/10 p-8'>
             <form className='w-full'>
                 <div className='-mx-3 mb-6 flex flex-wrap'>
                     <div className='mb-6 w-full px-3 md:mb-0 md:w-1/2'>
@@ -58,7 +57,7 @@ const ContactForm = () => {
                             Navn
                         </label>
                         <input
-                            className='mb-3 block w-full appearance-none rounded border bg-background/50 px-4 py-3 leading-tight focus:border-card-foreground/50 focus:outline-none'
+                            className='mb-3 block w-full appearance-none rounded border border-primary bg-background/50 px-4 py-3 leading-tight focus:border-secondary-foreground/50 focus:outline-none'
                             id='grid-first-name'
                             type='text'
                             placeholder='Ditt navn'
@@ -72,7 +71,7 @@ const ContactForm = () => {
                             Mailadresse
                         </label>
                         <input
-                            className='block w-full appearance-none rounded border bg-background/50 px-4 py-3 leading-tight focus:border-card-foreground/50 focus:outline-none'
+                            className='block w-full appearance-none rounded border border-primary bg-background/50 px-4 py-3 leading-tight focus:border-secondary-foreground/50 focus:outline-none'
                             id='grid-last-name'
                             type='email'
                             placeholder='Din mailadresse'
@@ -88,14 +87,14 @@ const ContactForm = () => {
                             Melding
                         </label>
                         <textarea
-                            className=' no-resize mb-3 block h-48 w-full resize-none appearance-none rounded border bg-background/50 px-4  py-3 leading-tight focus:border-card-foreground/50 focus:outline-none'
+                            className=' no-resize mb-3 block h-48 w-full resize-none appearance-none rounded border border-primary bg-background/50 px-4  py-3 leading-tight focus:border-secondary-foreground/50 focus:outline-none'
                             id='message'
                             placeholder='Din melding...'
                         ></textarea>
                     </div>
                 </div>
                 <div className='md:flex md:items-center'>
-                    <Button variant='secondary' className='px-10'>
+                    <Button variant='default' className='px-10'>
                         Send
                     </Button>
                 </div>

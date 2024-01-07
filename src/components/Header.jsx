@@ -9,7 +9,7 @@ import { Button } from './ui/button'
 
 const HEADER_HEIGHT_NORMAL = '5rem'
 const HEADER_HEIGHT_ROOT = '6rem'
-const HEADER_BACKGROUND_NORMAL = 'bg-normal'
+const HEADER_BACKGROUND_NORMAL = 'bg-background'
 const HEADER_BACKGROUND_TRANSPARENT = 'bg-transparent'
 const OPACITY_100 = 'opacity-100'
 const OPACITY_95 = 'opacity-95'
@@ -22,11 +22,11 @@ const toggleHeaderChange = (setNavColor, setNavSize) => {
     const makeTransparent = pathIsRoot && scrollDist < 20 && !showingMenu
 
     if (makeTransparent) {
-        setNavColor('bg-transparent')
-        setNavSize('6rem')
+        setNavColor(HEADER_BACKGROUND_TRANSPARENT)
+        setNavSize(HEADER_HEIGHT_ROOT)
     } else {
-        setNavColor('bg-normal')
-        setNavSize('5rem')
+        setNavColor(HEADER_BACKGROUND_NORMAL)
+        setNavSize(HEADER_HEIGHT_NORMAL)
     }
 }
 
@@ -69,7 +69,7 @@ const Header = ({ children }) => {
     const opacity = isDropdownOpen ? OPACITY_100 : OPACITY_95
     const background =
         navColor === HEADER_BACKGROUND_NORMAL
-            ? `bg-muted ${opacity}`
+            ? `${HEADER_BACKGROUND_NORMAL} ${opacity}`
             : HEADER_BACKGROUND_TRANSPARENT
 
     if (pathname.includes('/admin')) return null
@@ -101,7 +101,7 @@ const Header = ({ children }) => {
             </div>
             <div className='flex-1 justify-end flex md:hidden mr-4 md:mr-8 h-[inherit]'>
                 <button
-                    className='flex justify-center items-center text-muted-foreground'
+                    className='flex justify-center items-center text-foreground-foreground'
                     aria-label={isDropdownOpen ? 'Lukk meny' : 'Vis meny'}
                     onClick={handleMenuClick}
                 >

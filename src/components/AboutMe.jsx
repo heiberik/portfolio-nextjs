@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import Container from './ui/Container'
+import SpecialHeader from './ui/SpecialHeader'
 
 const Bubble = ({ special, children, ...props }) => {
     return (
         <div
-            className={`whitespace-normal  break-keep rounded-xl bg-card border px-4 py-2 ${
-                special ? 'border-primary' : ''
-            } hover:border-foreground/20`}
+            className={`whitespace-normal  break-keep rounded-xl border border-primary px-4 py-2 ${special ? 'border-accent bg-accent text-white/90' : 'bg-primary/10'
+                }`}
             {...props}
         >
             {children}
@@ -16,7 +16,7 @@ const Bubble = ({ special, children, ...props }) => {
 
 const TechBubble = ({ imgSrc, name }) => {
     return (
-        <div className='group relative w-fit cursor-default whitespace-normal break-keep rounded-xl border border-card bg-primary bg-gradient-to-bl from-card to-secondary p-4 hover:border-foreground/20'>
+        <div className='group relative w-fit cursor-default whitespace-normal break-keep rounded-xl border border-primary bg-primary/10 p-4 hover:border-foreground/20'>
             <Image
                 src={imgSrc}
                 height={100}
@@ -24,7 +24,7 @@ const TechBubble = ({ imgSrc, name }) => {
                 alt={`${name} logo`}
                 className='transition-opacity duration-300 group-hover:opacity-0'
             />
-            <div className='transition-text absolute inset-0 flex flex-col items-center justify-center text-2xl font-semibold text-transparent duration-300 hover:text-card-foreground'>
+            <div className='transition-text absolute inset-0 flex flex-col items-center justify-center text-2xl font-semibold text-transparent duration-300 hover:text-foreground'>
                 {name}
             </div>
         </div>
@@ -34,11 +34,9 @@ const TechBubble = ({ imgSrc, name }) => {
 const AboutMe = ({ sanityData }) => {
     return (
         <Container id='om-meg'>
-            <div className='z-1 absolute inset-0  h-full w-full bg-[linear-gradient(to_right,hsl(var(--secondary))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--secondary))_1px,transparent_1px)] bg-[size:24px_24px] opacity-20 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]'></div>
-            <div className='z-10 flex flex-col text-card-foreground'>
-                <div className='bg-gradient-to-r from-primary/5 via-primary/70 to-primary/5 mb-8 md:mb-16 pb-[2px] text-center text-3xl font-medium text-foreground'>
-                    <h2 className='bg-background pb-4'> Om meg </h2>
-                </div>
+            <div className='z-1 absolute inset-0  h-full w-full bg-[linear-gradient(to_right,hsl(var(--secondary))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--secondary))_1px,transparent_1px)] bg-[size:24px_24px] opacity-10 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]'></div>
+            <div className='z-10 flex flex-col text-foreground'>
+                <SpecialHeader> Om meg </SpecialHeader>
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
                     <div className='flex flex-col gap-4'>
                         <h3 className='text-xl font-medium text-foreground'>
@@ -64,7 +62,7 @@ const AboutMe = ({ sanityData }) => {
                         </div>
                     </div>
                     <div className='lg:col-span-2 flex flex-col gap-4'>
-                        <h3 className='text-xl font-medium text-card-foreground'>
+                        <h3 className='text-xl font-medium text-foreground'>
                             Hvilke teknologier liker jeg?
                         </h3>
                         <div className='flex flex-wrap gap-4 rounded-xl'>
