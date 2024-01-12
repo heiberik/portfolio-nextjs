@@ -8,9 +8,22 @@ const Banner = ({ sanityData }) => {
                 <h1 className='mb-2 max-w-full whitespace-pre-line text-3xl md:text-4xl xl:text-5xl flex flex-col'>
                     <span> Hei, </span>
                     <span> Jeg heter Henrik </span>
-                    <span> og er <span className='bg-gradient-to-r from-primary via-primary/80 to-primary inline-block text-transparent bg-clip-text'> utvikler </span> og <span className='bg-gradient-to-r from-primary via-primary/80 to-primary inline-block text-transparent bg-clip-text'> jurist </span>.</span>
+                    <span>
+                        {' '}
+                        og er{' '}
+                        <span className='bg-gradient-to-r from-primary/90 via-primary to-primary/90 inline-block text-transparent bg-clip-text'>
+                            {' '}
+                            utvikler{' '}
+                        </span>{' '}
+                        og{' '}
+                        <span className='bg-gradient-to-r from-primary/90 via-primary to-primary/90 inline-block text-transparent bg-clip-text'>
+                            {' '}
+                            jurist{' '}
+                        </span>
+                        .
+                    </span>
                 </h1>
-                <p className='w-[50ch] max-w-full text-foreground-foreground md:w-[60ch] text-lg'>
+                <p className='w-[50ch] max-w-full text-foreground-foreground md:w-[60ch]'>
                     {sanityData?.description}
                 </p>
                 <div className='relative mt-6 flex flex-wrap justify-start gap-2'>

@@ -9,17 +9,20 @@ const PostCard = async ({ sanityData }) => {
     if (!post) return null
     return (
         <Button asChild variant='link' size='fit'>
-            <Link href={post.slug.current} className="rounded-xl overflow-hidden">
-                <div className='group w-full transform overflow-hidden rounded-lg border border-transparent bg-primary/10 text-foreground shadow-md transition duration-300 ease-out hover:border-foreground/10'>
-                    <div className='relative h-48 w-full overflow-hidden'>
+            <Link
+                href={post.slug.current}
+                className='rounded-xl overflow-hidden'
+            >
+                <div className='w-full rounded-xl group bg-primary/10 text-foreground transform transition duration-300 ease-out overflow-hidden shadow-md border border-foreground/10 hover:border-foreground/30'>
+                    <div className='relative w-full h-48 '>
                         <Image
                             objectFit='cover'
-                            alt="Artikkelbilde"
+                            alt='Artikkelbilde'
                             sanityData={post.image}
                             className='transform transition-transform duration-500 ease-out group-hover:scale-110'
                         />
                     </div>
-                    <div className='p-4'>
+                    <div className='p-4 md:p-6'>
                         <h3 className='mb-1 text-xl font-semibold text-foreground'>
                             {post.title}
                         </h3>

@@ -9,7 +9,7 @@ const ThemeToggler = () => {
     }
 
     return (
-        <Button variant='default' size='icon' onClick={toggleTheme}>
+        <Button variant='secondary' size='icon' onClick={toggleTheme}>
             {theme === 'dark' ? (
                 <Sun
                     size={50}

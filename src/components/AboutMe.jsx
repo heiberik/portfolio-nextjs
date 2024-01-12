@@ -5,8 +5,11 @@ import SpecialHeader from './ui/SpecialHeader'
 const Bubble = ({ special, children, ...props }) => {
     return (
         <div
-            className={`whitespace-normal  break-keep rounded-xl border border-primary px-4 py-2 ${special ? 'border-accent bg-accent text-white/90' : 'bg-primary/10'
-                }`}
+            className={`whitespace-normal text-secondary-foreground break-keep rounded-xl border px-4 py-2 ${
+                special
+                    ? 'border-accent bg-accent'
+                    : 'bg-secondary border-secondary'
+            }`}
             {...props}
         >
             {children}
@@ -14,15 +17,17 @@ const Bubble = ({ special, children, ...props }) => {
     )
 }
 
-const TechBubble = ({ imgSrc, name }) => {
+const TechBubble = ({ imgSrc, name, extraStyling = '' }) => {
     return (
-        <div className='group relative w-fit cursor-default whitespace-normal break-keep rounded-xl border border-primary bg-primary/10 p-4 hover:border-foreground/20'>
+        <div
+            className={`${extraStyling} group relative w-fit cursor-default whitespace-normal break-keep rounded bg-primary/50 border border-primary/60 p-4 hover:border-foreground/20`}
+        >
             <Image
                 src={imgSrc}
                 height={100}
                 width={100}
                 alt={`${name} logo`}
-                className='transition-opacity duration-300 group-hover:opacity-0'
+                className={`transition-opacity duration-300 group-hover:opacity-0 `}
             />
             <div className='transition-text absolute inset-0 flex flex-col items-center justify-center text-2xl font-semibold text-transparent duration-300 hover:text-foreground'>
                 {name}
@@ -33,14 +38,14 @@ const TechBubble = ({ imgSrc, name }) => {
 
 const AboutMe = ({ sanityData }) => {
     return (
-        <Container id='om-meg'>
-            <div className='z-1 absolute inset-0  h-full w-full bg-[linear-gradient(to_right,hsl(var(--secondary))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--secondary))_1px,transparent_1px)] bg-[size:24px_24px] opacity-10 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]'></div>
+        <Container id='om-meg' variant='border'>
+            <div className='z-1 absolute inset-0  h-full w-full bg-[linear-gradient(to_right,hsl(var(--primary))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary))_1px,transparent_1px)] bg-[size:24px_24px] opacity-5 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]'></div>
             <div className='z-10 flex flex-col text-foreground'>
                 <SpecialHeader> Om meg </SpecialHeader>
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
                     <div className='flex flex-col gap-4'>
                         <h3 className='text-xl font-medium text-foreground'>
-                            Hvem er jeg?
+                            Kort oppsummert?
                         </h3>
                         <div className='flex flex-wrap gap-2'>
                             <Bubble special={true}> Utvikler </Bubble>
@@ -63,7 +68,7 @@ const AboutMe = ({ sanityData }) => {
                     </div>
                     <div className='lg:col-span-2 flex flex-col gap-4'>
                         <h3 className='text-xl font-medium text-foreground'>
-                            Hvilke teknologier liker jeg?
+                            Foretrukne teknologier?
                         </h3>
                         <div className='flex flex-wrap gap-4 rounded-xl'>
                             <TechBubble

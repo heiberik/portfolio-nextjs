@@ -8,19 +8,20 @@
 
 @layer base {
     :root {
-        --foreground: 207 61% 10%;
-        --background: 197 64% 98%;
-        --primary: 204 59% 26%;
-        --secondary: 248 59% 69%;
-        --accent: 258 59% 49%;
+        --foreground: 205 80% 8%;
+        --background: 200 5% 95%;
+        --primary: 186 52% 10%;
+        --secondary: 203 82% 20%;
+        --secondary-foreground: 205 79% 92%;
+        --accent: 285 92% 35%;
     }
-
     .dark {
-        --foreground: 208 60% 90%;
-        --background: 203 67% 2%;
-        --primary: 204 59% 74%;
-        --secondary: 248 59% 31%;
-        --accent: 258 59% 51%;
+        --foreground: 205 79% 92%;
+        --background: 207 85% 5%;
+        --primary: 186 82% 32%;
+        --secondary: 203 82% 20%;
+        --secondary-foreground: 205 79% 92%;
+        --accent: 285 92% 35%;
     }
 }
 
